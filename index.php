@@ -21,8 +21,8 @@
             $text2 = $_POST["text2"] ;
         } else {
             print("Aufruf über die URL") ;
-            $text1 = "" ;
-            $text2 = "" ;
+            $text1 = "Hier1" ;
+            $text2 = "hier2" ;
         }
     ?>
         <div class="row">
