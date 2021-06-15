@@ -29,13 +29,13 @@
             <form method="POST">
                 <div class="mb-3">
                     <label for="text1" class="form-label">Unser erstes Eingabefeld</label>
-                    <input type="text" class="form-control" value="<?php print($text1); ?>"
+                    <input type="text" class="form-control" placeholder="<?php print($text1); ?>"
                     id="text1" name="text1" aria-describedby="helptext" />
                     <div id="helptext" class="form-text">Bitte geben Sie hier etwas ein</div>
                 </div>
                 <div class="mb-3">
                     <label for="text2" class="form-label">Unser nächstes Eingabefeld</label>
-                    <input type="text" class="form-control" value="<?php print($text2); ?>"
+                    <input type="text" class="form-control" placeholder="<?php print($text2); ?>"
                     id="text2" name="text2" aria-describedby="helptext" />
                     <div id="helptext" class="form-text">Bitte geben Sie hier etwas ein</div>
                 </div>
