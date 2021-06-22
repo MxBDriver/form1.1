@@ -19,31 +19,54 @@
             print("Aufruf über Formular") ;
             $text1 = $_POST["text1"] ;
             $text2 = $_POST["text2"] ;
-            $summe = $_POST["text1"] + $_POST["text2"];
+            // $summe = $_POST["text1"] + $_POST["text2"];
+
+            $zahl1 = intval($text1);
+            $zahl2 = intval($text1);
+
+            if ($_POST["button"]=="summe") {
+                $summe = "Das Ergebnis ist: ".($text1+$text2)."."; 
+            } else if ($_POST["button"]=="subbi") {
+                    $summe = "Das Ergebnis ist: ".($text1-$text2).".";
+            } else if ($_POST["button"]=="multi") {
+                    $summe = "Das Ergebnis ist: ".($text1*$text2).".";  
+            } else if ($_POST["button"]=="divid") {
+                if ($zahl2 != 0) {
+                $summe = "Das Ergebnis ist: ".($zahl1/$zahl2).".";
+                } else {
+                $summe = "Halloooo! Dividieren durch 0 nicht erlaubt!";
+                }
+            }
+            
         } else {
             print("Aufruf über die URL") ;
             $text1 = "" ;
             $text2 = "" ;
-            $summe = "" ;
+            $summe = "Noch nichts berechnet" ;
+            
         }
     ?>
         <div class="row">
             <form method="POST">
                 <div class="mb-3">
                     <label for="text1" class="form-label">Unser erstes Eingabefeld</label>
-                    <input type="text" class="form-control" placeholder="<?php print($text1); ?>" 
+                    <input type="text" class="form-control" value="<?php print($text1); ?>" 
                     id="text1" name="text1" aria-describedby="helptext" title="Das Erste Eingabefeld" />
                     <div id="helptext" class="form-text">Bitte geben Sie hier etwas ein</div>
                 </div>
                 <div class="mb-3">
                     <label for="text2" class="form-label">Unser nächstes Eingabefeld</label>
-                    <input type="text" class="form-control" placeholder="<?php print($text2); ?>"
+                    <input type="text" class="form-control" value="<?php print($text2); ?>"
                     id="text2" name="text2" aria-describedby="helptext" title="Das Zweite Eingabefeld" />
                     <div id="helptext" class="form-text">Bitte geben Sie hier etwas ein</div>
                 </div>
-                <button type="submit" title="Ein schöner Button" class="btn btn-primary">Abschicken</button>
+                <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="summe">addieren</button> 
+                <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="subbi">subtrahieren</button> 
+                <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="multi">multiplizieren</button> 
+                <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="divid">dividieren</button>
+                <button type="reset" title="Ein schöner Button" class="btn btn-primary" >reset</button>
                 <br />
-                <div class="mb-3"><p>Das Ergebnis ist: <?php echo $summe; ?> </p>
+                <div class="mb-3"><p> <?php echo $summe; ?> </p>
                 </div>
             </form>
         </div>
