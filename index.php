@@ -19,27 +19,32 @@
             print("Aufruf über Formular") ;
             $text1 = $_POST["text1"] ;
             $text2 = $_POST["text2"] ;
+            $summe = $_POST["text1"] + $_POST["text2"];
         } else {
             print("Aufruf über die URL") ;
-            $text1 = "Hier1" ;
-            $text2 = "hier2" ;
+            $text1 = "" ;
+            $text2 = "" ;
+            $summe = "" ;
         }
     ?>
         <div class="row">
             <form method="POST">
                 <div class="mb-3">
                     <label for="text1" class="form-label">Unser erstes Eingabefeld</label>
-                    <input type="text" class="form-control" placeholder="<?php print($text1); ?>"
-                    id="text1" name="text1" aria-describedby="helptext" />
+                    <input type="text" class="form-control" placeholder="<?php print($text1); ?>" 
+                    id="text1" name="text1" aria-describedby="helptext" title="Das Erste Eingabefeld" />
                     <div id="helptext" class="form-text">Bitte geben Sie hier etwas ein</div>
                 </div>
                 <div class="mb-3">
                     <label for="text2" class="form-label">Unser nächstes Eingabefeld</label>
                     <input type="text" class="form-control" placeholder="<?php print($text2); ?>"
-                    id="text2" name="text2" aria-describedby="helptext" />
+                    id="text2" name="text2" aria-describedby="helptext" title="Das Zweite Eingabefeld" />
                     <div id="helptext" class="form-text">Bitte geben Sie hier etwas ein</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Abschicken</button>
+                <button type="submit" title="Ein schöner Button" class="btn btn-primary">Abschicken</button>
+                <br />
+                <div class="mb-3"><p>Das Ergebnis ist: <?php echo $summe; ?> </p>
+                </div>
             </form>
         </div>
     </div>
