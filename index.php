@@ -32,11 +32,18 @@
                     $summe = "Das Ergebnis ist: ".($text1*$text2).".";  
             } else if ($_POST["button"]=="divid") {
                 if ($zahl2 != 0) {
-                $summe = "Das Ergebnis ist: ".($zahl1/$zahl2).".";
+                    $summe = "Das Ergebnis ist: ".($zahl1/$zahl2).".";
                 } else {
-                $summe = "Halloooo! Dividieren durch 0 nicht erlaubt!";
+                    $summe = "Halloooo! Dividieren durch 0 nicht erlaubt!";
                 }
-            }
+            } 
+            else if ($_POST["button"]=="modulo") {
+                if ($zahl2 != 0) {
+                    $summe = "Das Ergebnis ist: ".($zahl1%$zahl2).".";
+                } else {
+                    $summe = "Halloooo! Dividieren durch 0 nicht erlaubt!";
+                }
+            } 
             
         } else {
             print("Aufruf über die URL") ;
@@ -64,6 +71,7 @@
                 <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="subbi">subtrahieren</button> 
                 <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="multi">multiplizieren</button> 
                 <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="divid">dividieren</button>
+                <button type="submit" title="Ein schöner Button" class="btn btn-primary" name="button" value="modulo">Modulo</button>
                 <button type="reset" title="Ein schöner Button" class="btn btn-primary" >reset</button>
                 <br />
                 <div class="mb-3"><p> <?php echo $summe; ?> </p>
